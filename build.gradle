@@ -167,12 +167,12 @@ idea {
 project('access') {
   dependencies {
     // projects
-    implementation project(':application-profile')
-    implementation project(':cogni-core')
-    implementation project(':cogni-libs')
-    implementation project(':cogni-sem')
-    implementation project(':triplestore')
-    implementation project(':triplestore-jena-memory')
+    api project(':application-profile')
+    api project(':cogni-core')
+    api project(':cogni-libs')
+    api project(':cogni-sem')
+    api project(':triplestore')
+    api project(':triplestore-jena-memory')
 
     // libs
     api('com.google.guava:guava')
@@ -198,7 +198,7 @@ project('access') {
 project('action-logger') {
   dependencies {
     // projects
-    implementation project(':service')
+    api project(':service')
 
     // libs
     api('org.apache.commons:commons-collections4')
@@ -220,7 +220,7 @@ project('action-logger') {
 project('application-profile') {
   dependencies {
     // projects
-    implementation project(':cogni-core')
+    api project(':cogni-core')
 
     // libs
     api('com.google.guava:guava')
@@ -243,9 +243,9 @@ project('application-profile') {
 project('application-profile-owl') {
   dependencies {
     // projects
-    implementation project(':cogni-core')
-    implementation project(':cogni-sem')
-    implementation project(':application-profile')
+    api project(':cogni-core')
+    api project(':cogni-sem')
+    api project(':application-profile')
 
     // libs
     api('com.google.guava:guava')
@@ -266,9 +266,9 @@ project('application-profile-owl') {
 project('application-profile-shacl') {
   dependencies {
     // projects
-    implementation project(':access')
-    implementation project(':application-profile')
-    implementation project(':cogni-sem')
+    api project(':access')
+    api project(':application-profile')
+    api project(':cogni-sem')
 
     // libs
     api('com.google.guava:guava')
@@ -290,12 +290,12 @@ project('asquareroot') {
 
   dependencies {
     // projects
-    implementation project(':access')
-    implementation project(':cogni-libs')
-    implementation project(':cogni-sem')
-    implementation project(':security')
-    implementation project(':service')
-    implementation project(':triplestore')
+    api project(':access')
+    api project(':cogni-libs')
+    api project(':cogni-sem')
+    api project(':security')
+    api project(':service')
+    api project(':triplestore')
 
     // libs
     api('org.apache.jena:jena-arq')
@@ -353,7 +353,7 @@ project('cogni-libs') {
 project('cogni-sem') {
   dependencies {
     // projects
-    implementation project(':cogni-core')
+    api project(':cogni-core')
 
     // libs
     api('com.google.guava:guava')
@@ -368,13 +368,13 @@ project('cogni-sem') {
 project('cube') {
   dependencies {
     // projects
-    implementation project(':access')
-    implementation project(':application-profile')
-    implementation project(':cogni-core')
-    implementation project(':cogni-sem')
-    implementation project(':service')
-    implementation project(':triplestore')
-    implementation project(':triplestore-jena-memory')
+    api project(':access')
+    api project(':application-profile')
+    api project(':cogni-core')
+    api project(':cogni-sem')
+    api project(':service')
+    api project(':triplestore')
+    api project(':triplestore-jena-memory')
 
     // libs
     api('com.google.code.findbugs:jsr305')
@@ -418,7 +418,7 @@ project('elasticproxy') {
 project('security') {
   dependencies {
     // projects
-    implementation project(':service')
+    api project(':service')
 
     // libs
     api('com.google.guava:guava')
@@ -440,13 +440,13 @@ project('security') {
 project('service') {
   dependencies {
     // projects
-    implementation project(':access')
-    implementation project(':application-profile')
-    implementation project(':cogni-core')
-    implementation project(':cogni-libs')
-    implementation project(':cogni-sem')
-    implementation project(':triplestore')
-    implementation project(':triplestore-jena-memory')
+    api project(':access')
+    api project(':application-profile')
+    api project(':cogni-core')
+    api project(':cogni-libs')
+    api project(':cogni-sem')
+    api project(':triplestore')
+    api project(':triplestore-jena-memory')
 
     // libs
     api('com.google.guava:guava')
@@ -482,7 +482,7 @@ project('transactional') {
 project('triplestore') {
   dependencies {
     // projects
-    implementation project(':cogni-sem')
+    api project(':cogni-sem')
 
     // libs
     api('org.apache.jena:jena-arq')
@@ -492,9 +492,9 @@ project('triplestore') {
 project('triplestore-jena-memory') {
   dependencies {
     // projects
-    implementation project(':cogni-core')
-    implementation project(':cogni-sem')
-    implementation project(':triplestore')
+    api project(':cogni-core')
+    api project(':cogni-sem')
+    api project(':triplestore')
 
     // libs
     api('com.google.guava:guava')
@@ -510,9 +510,9 @@ project('triplestore-jena-memory') {
 project('triplestore-tdb2') {
   dependencies {
     // projects
-    implementation project(':cogni-sem')
-    implementation project(':triplestore')
-    implementation project(':transactional')
+    api project(':cogni-sem')
+    api project(':triplestore')
+    api project(':transactional')
 
     // libs
     api('com.google.code.findbugs:jsr305')
