@@ -45,7 +45,7 @@ public class FusekiConfig extends Config {
   }
 
   public String getTurtleMimeType() {
-    return StringUtils.defaultIfBlank(overwriteTurtleMimeType, "application/x-turtle");
+    return StringUtils.defaultIfBlank(overwriteTurtleMimeType, "text/turtle");
   }
 
   public String getOverwriteTurtleMimeType() {
