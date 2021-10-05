@@ -13,6 +13,7 @@ import org.apache.http.client.fluent.Request;
 import org.apache.http.client.fluent.Response;
 import org.apache.http.client.protocol.HttpClientContext;
 import org.apache.http.entity.ContentType;
+import org.apache.http.impl.client.BasicAuthCache;
 import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.message.BasicNameValuePair;
@@ -60,6 +61,7 @@ public class FusekiSparqlService implements SparqlService {
 
     HttpClientContext context = HttpClientContext.create();
     context.setCredentialsProvider(credentialsProvider);
+    context.setAuthCache(new BasicAuthCache()); //so after first call it will know it has to send the authentication
     return context;
   }
 
@@ -143,14 +145,16 @@ public class FusekiSparqlService implements SparqlService {
 
   @Override
   public <R> R executeSelectQuery(String query, Function<ResultSet, R> resultHandler) {
-    try (QueryExecution queryExecution = QueryExecutionFactory.sparqlService(config.getQueryUrl(), query, null, authenticationHttpContext)) {
+    //pass default graph, method without default graph doesn't use the HttpContext !!!
+    try (QueryExecution queryExecution = QueryExecutionFactory.sparqlService(config.getQueryUrl(), query,null,  null, authenticationHttpContext)) {
       return resultHandler.apply(queryExecution.execSelect());
     }
   }
 
   @Override
   public boolean executeAskQuery(String askQuery) {
-    try (QueryExecution queryExecution = QueryExecutionFactory.sparqlService(config.getQueryUrl(), askQuery, null, authenticationHttpContext)) {
+    //pass default graph, method without default graph doesn't use the HttpContext !!!
+    try (QueryExecution queryExecution = QueryExecutionFactory.sparqlService(config.getQueryUrl(), askQuery, null, null, authenticationHttpContext)) {
       return queryExecution.execAsk();
     }
   }
