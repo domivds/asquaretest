@@ -49,7 +49,10 @@ public class SparqlServiceProvider {
   private FusekiConfig createFusekiConfig(String base) {
     FusekiConfig config = new FusekiConfig();
     fillDefaultConfig(config, base);
-
+    config.setQueryUrl(environment.getProperty(base + "queryUrl"));
+    config.setUpdateUrl(environment.getProperty(base + "updateUrl"));
+    config.setGraphStoreUrl(environment.getProperty(base + "graphStoreUrl"));
+    config.setOverwriteTurtleMimeType(environment.getProperty(base + "overwriteTurtleMimeType"));
     return config;
   }
 
